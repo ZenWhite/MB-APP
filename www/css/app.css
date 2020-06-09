@@ -1,0 +1,152 @@
+:root {
+    --gray: #272727;
+    --blue: #367FD4;
+    --white: #fff;
+    --black: #111;
+}
+
+*::selection {
+    color: var(--white);
+    background: var(--black);
+}
+
+.wrap {
+    box-sizing: border-box;
+    padding: 0 16px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hide {display: none;}
+
+.animate::after {
+    animation: circle 1s linear forwards;
+}
+
+.active {
+    filter: opacity(1) grayscale(1) !important;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+}
+
+.swipe {
+    margin-left: -100vw;
+}
+
+body {
+    font-family: 'Montserrat';
+    background-blend-mode: overlay;
+}
+
+header {
+    background: var(--blue);
+    height: 80px;
+}
+
+main {
+    display: flex;
+    overflow: hidden;
+}
+
+.main-page, .options-page {
+    min-height: calc(100vh - 80px);
+    flex-basis: 100%;
+    min-width: 100vw;
+    transition-duration: 450ms;
+    transition-property: margin;
+}
+
+.main-page {
+    flex-direction: column;
+    position: relative;
+}
+
+.main-page__info {
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+}
+
+.main-page__name {
+    font-size: 20px;
+    color: var(--white);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.main-page__link {
+    font-size: 16px;
+    color: var(--white);
+    text-decoration: none;
+}
+
+.header .wrap {
+    height: 100%;
+}
+
+.logo {
+    font-family: 'Viga';
+    font-size: 40px;
+    letter-spacing: 0.1em;
+    color: var(--white);
+}
+
+.btn {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: var(--blue);
+    position: relative;
+    overflow: hidden;
+    margin: auto 0;
+}
+
+.btn::after {
+    content: '';
+    background: var(--white);
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    display: block;
+}
+
+.options-page__block {
+    padding-top: 15px;
+}
+
+.options-page__block .wrap{
+    display: grid;
+    grid-template-rows: repeat( auto-fit, 100px );
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+}
+
+.options-page__item {
+    min-width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    max-width: 75px;
+    filter: opacity(0.5) grayscale(0.5);
+    transition-duration: 450ms;
+    transition-property: filter, box-shadow;
+}
+
+@keyframes circle {
+    100% {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+    }
+}
+
+@keyframes circleAlternate {
+    100% {
+        width: 75px;
+        height: 75px;
+        opacity: 1;
+    }
+}

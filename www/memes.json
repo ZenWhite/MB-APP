@@ -1,0 +1,25 @@
+{
+	"memes" : [
+		{
+			"id" : "1",
+			"name" : "BRUH",
+			"audio" : "./audio/bruh.mp3",
+			"image" : "./img/bruh.webp",
+			"src" : "https://google.com"
+		},
+		{
+			"id" : "2",
+			"name" : "Чё там с деньгами?",
+			"audio" : "./audio/money.mp3",
+			"image" : "./img/money.jpg",
+			"src" : "https://google.com"
+		},
+		{
+			"id" : "3",
+			"name" : "Бобёр орёт",
+			"audio" : "./audio/beaver.mp3",
+			"image" : "./img/beaver.jpg",
+			"src" : "https://google.com"
+		}
+	]
+}
