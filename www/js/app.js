@@ -31,6 +31,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
             document.body.style.background = `url(${meme.image}) no-repeat center center, rgba(39,39,39,0.9)`;
             document.body.style.backgroundSize = 'cover';
+            memeName.textContent = meme.name;
 
             audio.src = meme.audio;
         }
@@ -44,12 +45,10 @@ window.addEventListener('DOMContentLoaded', () => {
     const play = document.querySelector('.play');
     const memeGrid = document.querySelector('.options-page__block');
     const mainBlock = document.querySelector('main');
+    const memeName = document.querySelector('.name');
 
     //Events
-    play.addEventListener('click', function (e) {
-        e.preventDefault();
-        audio.play();
-    });
+    play.addEventListener('click', onPlayBtnClick);
 
     (async () => { //Main Module. Rendering Memes Circles and set meme in memes
         try {
@@ -73,30 +72,37 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderMemes() {
-        const fragment = document.createDocumentFragment();
         const wrap = document.createElement('div');
         wrap.classList.add('wrap');
 
         memes.forEach((memesItem) => {
             const meme = new Meme(memesItem);
             const memeBlock = meme.render();
-            fragment.appendChild(memeBlock);
+            wrap.appendChild(memeBlock);
         });
 
-        wrap.appendChild(fragment);
         memeGrid.appendChild(wrap);
         Meme.setActiveMeme(1);
+    }
+
+    function onPlayBtnClick(e) {
+        e.preventDefault();
+        this.classList.add('animate');
+        setTimeout(() => {
+            this.classList.remove('animate');
+        }, 1000);
+        audio.play();
     }
 
     //Swipe
     let touchstartX = 0;
     let touchendX = 0;
 
-    mainBlock.addEventListener('touchstart', function(event) {
+    mainBlock.addEventListener('touchstart', e => {
         touchstartX = event.changedTouches[0].screenX;
     }, false);
 
-    mainBlock.addEventListener('touchend', function(event) {
+    mainBlock.addEventListener('touchend', e => {
         touchendX = event.changedTouches[0].screenX;
         onTouchHandler();
     }, false); 

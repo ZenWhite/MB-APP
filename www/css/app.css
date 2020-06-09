@@ -24,7 +24,7 @@
 .hide {display: none;}
 
 .animate::after {
-    animation: circle 1s linear forwards;
+    animation: circle 0.5s linear forwards;
 }
 
 .active {
@@ -81,6 +81,7 @@ main {
     font-size: 16px;
     color: var(--white);
     text-decoration: none;
+    display: none;
 }
 
 .header .wrap {
