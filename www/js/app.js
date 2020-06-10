@@ -63,7 +63,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     async function getMemes() { //Get Memes From JSON File(My Fake Database)
         try {
-            const response = await fetch('./memes.json');
+            const response = await fetch('memes.json');
             const data = await response.json();
             return data;
         } catch (err) {
